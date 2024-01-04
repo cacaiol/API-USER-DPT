@@ -1,11 +1,19 @@
 package entities;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "tb_user")
+
 public class User {
 
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)private Long id;
     private String name;
     private String email;
 
+    @ManyToOne
+    @JoinColumn(name = "department_id")
     private Department department; //ESSE ATRIBUTO É A ASSOCIAÇÃO DAS DUAS ENTIDADES NO MER
 
     public User() {

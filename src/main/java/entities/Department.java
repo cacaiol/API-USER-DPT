@@ -1,11 +1,16 @@
 package entities;
 
-public class Department {
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "tb_department")
+public class Department {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
-    //Construtor sem parâmetros refere-se a classe poder ser instanciada sem argumentos.
     public Department() {
     }
 
